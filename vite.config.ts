@@ -3,12 +3,16 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import tailwindcss from '@tailwindcss/vite'
+
+// Automation Plugins
 import AutoImport from 'unplugin-auto-import/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Components from 'unplugin-vue-components/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+// Unocss kit
+import UnoCSS from 'unocss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -24,7 +28,6 @@ export default defineConfig({
     }),
     vue(),
     vueDevTools(),
-    tailwindcss(),
     AutoImport({
       imports: [
         'vue',
@@ -39,6 +42,8 @@ export default defineConfig({
         importStyle: 'sass',
       })],
     }),
+
+    UnoCSS(),
   ],
 
   resolve: {

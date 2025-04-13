@@ -3,6 +3,8 @@ import './styles/index.scss'
 import 'element-plus/theme-chalk/src/message.scss'
 import 'element-plus/theme-chalk/src/message-box.scss'
 
+import 'virtual:uno.css'
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 

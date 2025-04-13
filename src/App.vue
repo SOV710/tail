@@ -4,10 +4,13 @@ const i18n = useI18n()
 </script>
 
 <template>
-  <div>
-    <el-config-provider :locale="i18n.locale">
-      <el-table mb-1 :data="[]" />
-      <el-pagination :total="100" />
-    </el-config-provider>
-  </div>
+  <el-config-provider :locale="i18n.locale">
+    <BaseHeader />
+    <div class="">
+      <BaseSide />
+      <div>
+        <RouterView />
+      </div>
+    </div>
+  </el-config-provider>
 </template>
