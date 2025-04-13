@@ -1,4 +1,7 @@
-import './styles/main.css'
+import './styles/index.scss'
+
+import 'element-plus/theme-chalk/src/message.scss'
+import 'element-plus/theme-chalk/src/message-box.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

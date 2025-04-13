@@ -1,6 +1,7 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <input type="checkbox" checked="checked" class="checkbox" />
+    <h1 class='bg-red-500'>This is an about page</h1>
   </div>
 </template>
 

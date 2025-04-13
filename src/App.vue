@@ -11,14 +11,6 @@
       </nav>
     </div>
 
-    <el-menu class="el-menu-demo" mode="horizontal" :ellipsis="false" router>
-      <el-menu-item index="/" class='bg-red-400'>
-        <div class="flex text-xl">
-          <div class="text-xl" i-ep-element-plus />
-          <span>Element Plus</span>
-        </div>
-      </el-menu-item>
-    </el-menu>
   </header>
 
   <RouterView />

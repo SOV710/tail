@@ -6,7 +6,8 @@
 // }
 
 body {
-  font-family: Inter, system-ui, Avenir, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+  font-family:
+    Inter, system-ui, Avenir, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
     'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,8 +21,8 @@ a {
 code {
   border-radius: 2px;
   padding: 2px 4px;
-  background-color: var(--ep-color-primary-light-9);
-  color: var(--ep-color-primary);
+  background-color: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
 }
 
 #nprogress {
