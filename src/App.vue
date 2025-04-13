@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { useI18n } from '@/stores/counter'
-const i18n = useI18n()
+import { useI18n } from '@/composables'
+const { locale } = useI18n()
 </script>
 
 <template>
-  <el-config-provider :locale="i18n.locale">
+  <el-config-provider :locale="locale">
     <BaseHeader />
-    <div class="">
+    <div class="main-container flex">
       <BaseSide />
       <div>
         <RouterView />
@@ -14,3 +14,14 @@ const i18n = useI18n()
     </div>
   </el-config-provider>
 </template>
+
+<style>
+#app {
+  text-align: center;
+  color: var(--ep-text-color-primary);
+}
+
+.main-container {
+  height: calc(100vh - var(--ep-menu-item-height) - 4px);
+}
+</style>
