@@ -10,6 +10,8 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Components from 'unplugin-vue-components/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
 
 // Unocss kit
 import UnoCSS from 'unocss/vite'
@@ -31,19 +33,35 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
+        'vue-router',
         VueRouterAutoImports,
       ],
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver(),
+
+        IconsResolver({
+          prefix: 'Icon',
+        })
+      ],
     }),
     Components({
       extensions: ['vue', 'md'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      resolvers: [ElementPlusResolver({
-        importStyle: 'sass',
-      })],
+      resolvers: [
+        IconsResolver({
+          enableCollections: ['ep', 'el'],
+        }),
+
+        ElementPlusResolver({
+          importStyle: 'sass',
+        })
+      ],
     }),
 
     UnoCSS(),
+    Icons({
+      autoInstall: true,
+    }),
   ],
 
   resolve: {

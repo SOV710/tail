@@ -37,7 +37,7 @@ import { Language } from '@element-plus/icons-vue'
     <!-- 右侧: 用户头像菜单 -->
     <el-sub-menu index="/user" class="mx-2">
       <template #title>
-        <el-avatar src="/avatar.jpg" />
+        <el-avatar src="@/assets/avatar/default.jpg" />
       </template>
       <el-menu-item index="/profile">Profile</el-menu-item>
       <el-menu-item index="/settings">Settings</el-menu-item>
