@@ -2,8 +2,6 @@
 import { toggleDark, useI18n } from '@/composables'
 
 const { toggleI18n } = useI18n()
-
-import { Language } from '@element-plus/icons-vue'
 </script>
 
 <template>
@@ -23,21 +21,24 @@ import { Language } from '@element-plus/icons-vue'
       <!-- 夜间模式按钮 -->
       <el-menu-item class="mx-2">
         <el-button class="btn" style="height: var(--el-menu-item-height)" @click="toggleDark">
-          <i inline-flex i="dark:ep-moon ep-sunny" />
+          <i inline-flex i="dark:el-moon el-sunny" />
         </el-button>
       </el-menu-item>
-      <!-- 语言切换子菜单 -->
-      <el-sub-menu class="mx-2" @click="toggleI18n">
-        <template #title>
-          <Language />
-        </template>
-      </el-sub-menu>
+      <!-- 语言切换 -->
+      <el-menu-item h="full" @click="toggleI18n()">
+        <button
+          class="w-full cursor-pointer border-none bg-transparent"
+          style="height: var(--el-menu-item-height)"
+        >
+          <i inline-flex i="carbon-ibm-watson-language-translator" />
+        </button>
+      </el-menu-item>
     </el-menu-item-group>
 
     <!-- 右侧: 用户头像菜单 -->
-    <el-sub-menu index="/user" class="mx-2">
+    <el-sub-menu class="mx-2">
       <template #title>
-        <el-avatar src="@/assets/avatar/default.jpg" />
+        <el-avatar src="@/assets/avatar/default.png" />
       </template>
       <el-menu-item index="/profile">Profile</el-menu-item>
       <el-menu-item index="/settings">Settings</el-menu-item>

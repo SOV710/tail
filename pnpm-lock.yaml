@@ -24,6 +24,9 @@ importers:
       '@element-plus/icons-vue':
         specifier: ^2.3.1
         version: 2.3.1(vue@3.5.13(typescript@5.8.3))
+      '@iconify-json/carbon':
+        specifier: ^1.2.8
+        version: 1.2.8
       '@tsconfig/node22':
         specifier: ^22.0.1
         version: 22.0.1
@@ -471,6 +474,9 @@ packages:
   '@humanwhocodes/retry@0.4.2':
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/carbon@1.2.8':
+    resolution: {integrity: sha512-6xh4YiFBz6qoSnB3XMe23WvjTJroDFXB17J1MbiT7nATFe+70+em1acRXr8hgP/gYpwFMHFc4IvjA/IPTPnTzg==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -2493,6 +2499,10 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.2': {}
+
+  '@iconify-json/carbon@1.2.8':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
 

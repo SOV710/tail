@@ -2,7 +2,7 @@
 @use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *;
 
 // :root {
-//   --ep-color-primary: red;
+//   --el-color-primary: red;
 // }
 
 body {
@@ -15,7 +15,7 @@ body {
 }
 
 a {
-  color: var(--ep-color-primary);
+  color: var(--el-color-primary);
 }
 
 code {
