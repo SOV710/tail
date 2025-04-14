@@ -6,12 +6,12 @@ const { locale } = useI18n()
 <template>
   <el-config-provider :locale="locale">
     <BaseHeader />
-    <div class="main-container flex">
+    <el-container class="main-container flex">
       <BaseSide />
       <div>
         <RouterView />
       </div>
-    </div>
+    </el-container>
   </el-config-provider>
 </template>
 

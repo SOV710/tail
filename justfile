@@ -1,8 +1,8 @@
 # Default task: when running 'just' without arguments, execute the 'dev' task.
-default: dev
+default: run
 
 # Run the development server (using 'vite').
-dev:
+run:
   @./node_modules/.bin/vite
 
 # Run type-checking (using 'vue-tsc --build').

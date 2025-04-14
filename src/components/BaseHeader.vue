@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { toggleDark, useI18n } from '@/composables'
-
 const { toggleI18n } = useI18n()
 </script>
 
@@ -16,24 +15,24 @@ const { toggleI18n } = useI18n()
       <el-input placeholder="Search..." class="w-full" />
     </el-menu-item>
 
-    <!-- 中右: 夜间模式按钮 & 语言切换 -->
-    <el-menu-item-group class="flex items-center">
-      <!-- 夜间模式按钮 -->
-      <el-menu-item class="mx-2">
-        <el-button class="btn" style="height: var(--el-menu-item-height)" @click="toggleDark">
-          <i inline-flex i="dark:el-moon el-sunny" />
-        </el-button>
-      </el-menu-item>
-      <!-- 语言切换 -->
-      <el-menu-item h="full" @click="toggleI18n()">
-        <button
-          class="w-full cursor-pointer border-none bg-transparent"
-          style="height: var(--el-menu-item-height)"
-        >
-          <i inline-flex i="carbon-ibm-watson-language-translator" />
-        </button>
-      </el-menu-item>
-    </el-menu-item-group>
+    <!-- 夜间模式按钮 -->
+    <el-menu-item h="full" @click="toggleDark()">
+      <button
+        class="w-full cursor-pointer border-none bg-transparent"
+        style="height: var(--el-menu-item-height)"
+      >
+        <i inline-flex i="dark:el-moon el-sunny" />
+      </button>
+    </el-menu-item>
+    <!-- 语言切换 -->
+    <el-menu-item h="full" @click="toggleI18n()">
+      <button
+        class="w-full cursor-pointer border-none bg-transparent"
+        style="height: var(--el-menu-item-height)"
+      >
+        <div class="i-carbon-ibm-watson-language-translator" />
+      </button>
+    </el-menu-item>
 
     <!-- 右侧: 用户头像菜单 -->
     <el-sub-menu class="mx-2">
