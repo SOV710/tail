@@ -26,7 +26,7 @@ const value1 = ref(true)
 
     <p>
       See
-      <a href="https://element-plus.org" target="_blank">element-plus</a> for more information.
+      <a href="https://github.com/SOV710/RhythmFusion" target="_blank">Rhythm-Fusion</a> for more information.
     </p>
 
     <!-- example components -->
