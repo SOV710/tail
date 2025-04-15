@@ -1,59 +1,19 @@
+<script lang="ts"></script>
+
 <template>
-  <el-aside>
-    <el-scrollbar>
-      <el-menu :default-openeds="['1', '3']">
-        <el-sub-menu index="1">
-          <template #title>
-            <el-icon><message /></el-icon>Navigator One
-          </template>
-          <el-menu-item-group>
-            <template #title>Group 1</template>
-            <el-menu-item index="1-1">Option 1</el-menu-item>
-            <el-menu-item index="1-2">Option 2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Group 2">
-            <el-menu-item index="1-3">Option 3</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="1-4">
-            <template #title>Option4</template>
-            <el-menu-item index="1-4-1">Option 4-1</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-        <el-sub-menu index="2">
-          <template #title>
-            <el-icon><icon-menu /></el-icon>Navigator Two
-          </template>
-          <el-menu-item-group>
-            <template #title>Group 1</template>
-            <el-menu-item index="2-1">Option 1</el-menu-item>
-            <el-menu-item index="2-2">Option 2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Group 2">
-            <el-menu-item index="2-3">Option 3</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="2-4">
-            <template #title>Option 4</template>
-            <el-menu-item index="2-4-1">Option 4-1</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-        <el-sub-menu index="3">
-          <template #title>
-            <el-icon><setting /></el-icon>Navigator Three
-          </template>
-          <el-menu-item-group>
-            <template #title>Group 1</template>
-            <el-menu-item index="3-1">Option 1</el-menu-item>
-            <el-menu-item index="3-2">Option 2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="Group 2">
-            <el-menu-item index="3-3">Option 3</el-menu-item>
-          </el-menu-item-group>
-          <el-sub-menu index="3-4">
-            <template #title>Option 4</template>
-            <el-menu-item index="3-4-1">Option 4-1</el-menu-item>
-          </el-sub-menu>
-        </el-sub-menu>
-      </el-menu>
+  <el-aside width="20%" class="dark:bg-[#121212] bg-[#f2f2f2]">
+    <el-scrollbar height="50vw" class="">
+      <el-card style="max-width: 480px" shadow="hover" class="m-4 bg-[#1f1f1f]">
+        <div class="card-header font-bold text-left text-lg">
+          <span>Create your first playlist</span>
+        </div>
+        <p class="text-left text-sm">It's easy, we'll help you</p>
+        <el-button type="primary" round style="font-weight: bold" class="m-4 w-60">
+          Create Playlist
+        </el-button>
+      </el-card>
     </el-scrollbar>
   </el-aside>
 </template>
+
+<style scoped lang="sass"></style>

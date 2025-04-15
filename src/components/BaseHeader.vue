@@ -2,6 +2,8 @@
 import { isDark, toggleDark } from '~/composables'
 
 import { Moon, Sunny } from '@element-plus/icons-vue'
+
+const input = ref('')
 </script>
 
 <template>
@@ -12,10 +14,10 @@ import { Moon, Sunny } from '@element-plus/icons-vue'
       </div>
     </el-menu-item>
 
-    <!-- 中间: 搜索框 -->
-    <el-menu-item class="flex-1 mx-4">
-      <el-input placeholder="Search..." class="w-full" />
-    </el-menu-item>
+    <!-- search -->
+    <div @keydown.stop>
+      <el-input v-model="input" placeholder="Search..." clearable size="large" class="p-2.5" @keydown.stop/>
+    </div>
 
     <!--other item-->
     <el-menu-item index="3" disabled> Search </el-menu-item>

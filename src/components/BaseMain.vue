@@ -17,8 +17,10 @@ const value1 = ref(true)
 </script>
 
 <template>
-  <el-main>
-    <h1 color="$ep-color-primary">
+  <el-main
+    class="bg-gradient-to-b dark:from-[#212121] dark:to-[#121212] min-h-screen from-[#f2f2f2] to-[#e5e5e5]"
+  >
+    <h1 color="$el-color-primary">
       {{ msg }}
     </h1>
 
@@ -55,7 +57,7 @@ const value1 = ref(true)
       <el-switch
         v-model="value1"
         class="m-2"
-        style="--ep-switch-on-color: black; --ep-switch-off-color: gray"
+        style="--el-switch-on-color: black; --el-switch-off-color: gray"
       />
     </div>
 
