@@ -8,7 +8,7 @@ const { locale } = useI18n()
     <BaseHeader />
     <el-container class="main-container flex">
       <BaseSide />
-      <div w='full' py='2'>
+      <div w="full" py="2">
         <RouterView />
       </div>
     </el-container>

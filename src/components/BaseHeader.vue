@@ -1,13 +1,15 @@
 <script lang="ts" setup>
-import { toggleDark, useI18n } from '@/composables'
-const { toggleI18n } = useI18n()
+import { isDark, toggleDark } from '~/composables'
+
+import { Moon, Sunny } from '@element-plus/icons-vue'
 </script>
 
 <template>
-  <el-menu router default-active="/" class="flex justify-between items-center p-4 bg-white">
-    <!-- 左侧: Logo -->
-    <el-menu-item index="/" class="cursor-pointer">
-      <img src="@/assets/logo.svg" alt="Logo" class="h-8 w-auto" />
+  <el-menu class="el-menu-demo" mode="horizontal" :ellipsis="false" router>
+    <el-menu-item index="/">
+      <div class="flex items-center justify-center gap-2">
+        <span>Rhythm Fusion</span>
+      </div>
     </el-menu-item>
 
     <!-- 中间: 搜索框 -->
@@ -15,33 +17,40 @@ const { toggleI18n } = useI18n()
       <el-input placeholder="Search..." class="w-full" />
     </el-menu-item>
 
-    <!-- 夜间模式按钮 -->
+    <!--other item-->
+    <el-menu-item index="3" disabled> Search </el-menu-item>
+    <el-menu-item index="4"> Suggest </el-menu-item>
+
     <el-menu-item h="full" @click="toggleDark()">
-      <button
-        class="w-full cursor-pointer border-none bg-transparent"
-        style="height: var(--el-menu-item-height)"
-      >
-        <i inline-flex i="dark:el-moon el-sunny" />
-      </button>
-    </el-menu-item>
-    <!-- 语言切换 -->
-    <el-menu-item h="full" @click="toggleI18n()">
-      <button
-        class="w-full cursor-pointer border-none bg-transparent"
-        style="height: var(--el-menu-item-height)"
-      >
-        <div class="i-carbon-ibm-watson-language-translator" />
-      </button>
+      <el-button type="text" class="w-full" style="height: var(--el-menu-item-height)">
+        <template #icon>
+          <el-icon class="inline-flex">
+            <component :is="isDark ? Moon : Sunny" />
+          </el-icon>
+        </template>
+      </el-button>
     </el-menu-item>
 
-    <!-- 右侧: 用户头像菜单 -->
-    <el-sub-menu class="mx-2">
-      <template #title>
-        <el-avatar src="@/assets/avatar/default.png" />
-      </template>
-      <el-menu-item index="/profile">Profile</el-menu-item>
-      <el-menu-item index="/settings">Settings</el-menu-item>
-      <el-menu-item index="/logout">Logout</el-menu-item>
+    <!-- Submenu -->
+    <el-sub-menu index="2">
+      <template #title> <el-avatar src="@/assets/avatar/default.png" /> </template>
+      <el-menu-item index="2-1"> item one </el-menu-item>
+      <el-menu-item index="2-2"> item two </el-menu-item>
+      <el-menu-item index="2-3"> item three </el-menu-item>
+      <el-sub-menu index="2-4">
+        <template #title> item four </template>
+        <el-menu-item index="2-4-1"> item one </el-menu-item>
+        <el-menu-item index="2-4-2"> item two </el-menu-item>
+        <el-menu-item index="2-4-3"> item three </el-menu-item>
+      </el-sub-menu>
     </el-sub-menu>
   </el-menu>
 </template>
+
+<style lang="scss">
+.el-menu-demo {
+  &.el-menu--horizontal > .el-menu-item:nth-child(1) {
+    margin-right: auto;
+  }
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <el-aside width='20%'>
+  <el-aside>
     <el-scrollbar>
       <el-menu :default-openeds="['1', '3']">
         <el-sub-menu index="1">
