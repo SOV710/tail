@@ -27,6 +27,7 @@ export default defineConfig({
   plugins: [
     VueRouter({
       extensions: ['.vue', '.md'],
+      dts: 'src/typed-router.d.ts',
     }),
     vue(),
     vueDevTools(),
@@ -43,6 +44,8 @@ export default defineConfig({
           prefix: 'Icon',
         })
       ],
+
+      dts: 'src/auto-imports.d.ts',
     }),
     Components({
       extensions: ['vue', 'md'],
@@ -56,6 +59,7 @@ export default defineConfig({
           importStyle: 'sass',
         })
       ],
+      dts: 'src/components.d.ts',
     }),
 
     UnoCSS(),
