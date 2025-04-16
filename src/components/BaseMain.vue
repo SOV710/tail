@@ -10,7 +10,7 @@ const input = ref('element-plus')
 const curDate = ref('')
 
 function toast() {
-  ElMessage.success('Hello')
+  ElMessage.success('Fuck you')
 }
 
 const value1 = ref(true)
@@ -18,15 +18,36 @@ const value1 = ref(true)
 
 <template>
   <el-main
-    class="bg-gradient-to-b dark:from-[#212121] dark:to-[#121212] min-h-screen from-[#f2f2f2] to-[#e5e5e5]"
+    class="m-0 p-0 bg-gradient-to-b dark:from-[#212121] dark:to-[#121212] min-h-screen from-[#f2f2f2] to-[#e5e5e5]"
   >
-    <h1 color="$el-color-primary">
+    <el-menu
+      class="m-0 flex flex-wrap items-center justify-left text-left"
+      style="background-color: rgba(255, 255, 255, 0)"
+      :ellipsis="false"
+      router
+    >
+      <el-menu-item index="/" class="p-0 m-0">
+        <el-button round size="large"> Home </el-button>
+      </el-menu-item>
+      <el-menu-item index="/music/" class="p-0 m-0">
+        <el-button round size="large"> Music </el-button>
+      </el-menu-item>
+    </el-menu>
+
+    <h1 color="$el-color-primary" class="text-4xl">
       {{ msg }}
     </h1>
 
-    <p>
-      See
-      <a href="https://github.com/SOV710/RhythmFusion" target="_blank">Rhythm-Fusion</a> for more information.
+    <p class="text-lg">
+      This is a website build with
+      <a href="https://vuejs.org/" target="_blank"> Vue 3</a> +
+      <a href="https://vite.dev/" target="_blank"> Vite</a> +
+      <a href="https://www.typescriptlang.org/" target="_blank"> Typescript</a> +
+      <a href="https://sass-lang.com/" target="_blank"> Sass/SCSS</a> +
+      <a href="https://router.vuejs.org/" target="_blank"> Vue-Router</a> +
+      <a href="https://pinia.vuejs.org/" target="_blank"> Pinia</a> +
+      <a href="https://element-plus.org/" target="_blank"> Element Plus</a>, and
+      <a href="https://unocss.dev/" target="_blank"> Unocss</a>
     </p>
 
     <!-- example components -->

@@ -16,7 +16,14 @@ const input = ref('')
 
     <!-- search -->
     <div @keydown.stop>
-      <el-input v-model="input" placeholder="Search..." clearable size="large" class="p-2.5" @keydown.stop/>
+      <el-input
+        v-model="input"
+        placeholder="Search..."
+        clearable
+        size="large"
+        class="p-2.5"
+        @keydown.stop
+      />
     </div>
 
     <!--other item-->
