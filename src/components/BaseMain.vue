@@ -1,19 +1,34 @@
 <script setup lang="ts">
-import { ElMessage } from 'element-plus'
-import { ref } from 'vue'
-
 defineProps<{ msg: string }>()
 
-const count = ref(0)
-const input = ref('element-plus')
+const glowOffset = reactive({ x: 0, y: 0 })
+const glowStyle = computed(() => {
+  return {
+    transform: `translate(${glowOffset.x}px, ${glowOffset.y}px)`,
+  }
+})
 
-const curDate = ref('')
-
-function toast() {
-  ElMessage.success('Fuck you')
+function handleMouseMove(event: MouseEvent) {
+  // 获取 glow-container 元素的位置和尺寸
+  const container = document.querySelector('.glow-container') as HTMLElement
+  if (!container) return
+  const rect = container.getBoundingClientRect()
+  const centerX = rect.width / 2
+  const centerY = rect.height / 2
+  // 计算鼠标相对于 glow-container 中心的偏移
+  const offsetX = (event.clientX - rect.left - centerX) * 0.05
+  const offsetY = (event.clientY - rect.top - centerY) * 0.05
+  glowOffset.x = offsetX
+  glowOffset.y = offsetY
 }
 
-const value1 = ref(true)
+onMounted(() => {
+  window.addEventListener('mousemove', handleMouseMove)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('mousemove', handleMouseMove)
+})
 </script>
 
 <template>
@@ -38,7 +53,7 @@ const value1 = ref(true)
       {{ msg }}
     </h1>
 
-    <p class="text-lg">
+    <p class="text-lg p-4">
       This is a website build with
       <a href="https://vuejs.org/" target="_blank"> Vue 3</a> +
       <a href="https://vite.dev/" target="_blank"> Vite</a> +
@@ -50,63 +65,76 @@ const value1 = ref(true)
       <a href="https://unocss.dev/" target="_blank"> Unocss</a>
     </p>
 
-    <!-- example components -->
-    <div class="mb-4">
-      <el-button size="large" @click="toast"> El Message </el-button>
-
-      <MessageBoxDemo />
-    </div>
-
-    <div class="my-2 flex flex-wrap items-center justify-center text-center">
-      <el-button @click="count++"> count is: {{ count }} </el-button>
-      <el-button type="primary" @click="count++"> count is: {{ count }} </el-button>
-      <el-button type="success" @click="count++"> count is: {{ count }} </el-button>
-      <el-button type="warning" @click="count++"> count is: {{ count }} </el-button>
-      <el-button type="danger" @click="count++"> count is: {{ count }} </el-button>
-      <el-button type="info" @click="count++"> count is: {{ count }} </el-button>
-    </div>
-
-    <div>
-      <el-tag type="success" class="m-1"> Tag 1 </el-tag>
-      <el-tag type="warning" class="m-1"> Tag 1 </el-tag>
-      <el-tag type="danger" class="m-1"> Tag 1 </el-tag>
-      <el-tag type="info" class="m-1"> Tag 1 </el-tag>
-    </div>
-
-    <div>
-      <el-switch v-model="value1" />
-      <el-switch
-        v-model="value1"
-        class="m-2"
-        style="--el-switch-on-color: black; --el-switch-off-color: gray"
+    <div class="glow-container" @mousemove="handleMouseMove">
+      <div class="glow-layer" :style="glowStyle"></div>
+      <img
+        src='@/assets/logo.png'
+        alt='Logo'
+        class="p-10 glow-image"
+        style="width: 500px; height: auto; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));"
       />
     </div>
-
-    <div class="my-2">
-      <el-input v-model="input" class="m-2" style="width: 200px" />
-      <el-date-picker v-model="curDate" class="m-2" type="date" placeholder="Pick a day" />
-    </div>
-
-    <p>For example, we can custom primary color to 'green'.</p>
-
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test components.
-    </p>
-    <p>
-      Edit
-      <code>styles/element/var.scss</code> to test scss variables.
-    </p>
-
-    <p>
-      Full Example:
-      <a href="https://github.com/element-plus/element-plus-vite-starter" target="_blank"
-        >element-plus-vite-starter</a
-      >
-      | On demand Example:
-      <a href="https://github.com/element-plus/unplugin-element-plus" target="_blank"
-        >unplugin-element-plus/examples/vite</a
-      >
-    </p>
   </el-main>
 </template>
+
+<style lang="scss" scoped>
+.glow-container {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+}
+
+/* 图片样式 */
+.glow-image {
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* 光晕层 */
+.glow-layer {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+
+  /* 初始背景为蓝色 */
+  background: rgba(0, 0, 255, 0.5);
+  filter: blur(85px);
+
+  /* 动画实现彩虹渐变效果 */
+  animation: glowRainbow 10s ease-in-out infinite alternate;
+}
+
+/* 定义动画 keyframes */
+@keyframes glowRainbow {
+  0% {
+    background: rgba(0, 0, 255, 0.5);  // 蓝色
+    filter: blur(85px);
+  }
+  20% {
+    background: rgba(75, 0, 130, 0.5); // 靛蓝
+    filter: blur(86px);
+  }
+  40% {
+    background: rgba(238, 130, 238, 0.5); // 紫罗兰
+    filter: blur(87px);
+  }
+  60% {
+    background: rgba(0, 255, 0, 0.5);   // 绿色
+    filter: blur(88px);
+  }
+  80% {
+    background: rgba(255, 255, 0, 0.5); // 黄色
+    filter: blur(89px);
+  }
+  100% {
+    background: rgba(255, 0, 0, 0.5);   // 红色
+    filter: blur(90px);
+  }
+}
+</style>
